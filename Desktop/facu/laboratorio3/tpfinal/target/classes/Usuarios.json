@@ -1,0 +1,7 @@
+[
+  {"nombre":"Juan","apellido":"Pérez","celular":2235465515, "username": "Pepito", "password": "12345"},
+  {"nombre":"María","apellido":"Gómez","celular":2235465515, "username": "Marielita", "password": "258852"},
+  {"nombre":"Carlos","apellido":"Rodríguez","celular":2235465515, "username": "Carlote", "password": "carlos123"},
+  {"nombre":"Juan","apellido":"García","celular":2235465515, "username": "Juanjo", "password": "juan123"},
+  {"nombre":"Marcos","apellido":"Villarreal","celular":2234469206, "username": "Mark", "password": "marcos321"}
+]
