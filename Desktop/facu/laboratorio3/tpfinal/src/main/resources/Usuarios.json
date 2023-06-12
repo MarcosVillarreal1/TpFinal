@@ -1,7 +1,6 @@
-[
-  {"nombre":"Juan","apellido":"Pérez","celular":2235465515, "username": "Pepito", "password": "12345"},
-  {"nombre":"María","apellido":"Gómez","celular":2235465515, "username": "Marielita", "password": "258852"},
-  {"nombre":"Carlos","apellido":"Rodríguez","celular":2235465515, "username": "Carlote", "password": "carlos123"},
-  {"nombre":"Juan","apellido":"García","celular":2235465515, "username": "Juanjo", "password": "juan123"},
-  {"nombre":"Marcos","apellido":"Villarreal","celular":2234469206, "username": "Mark", "password": "marcos321"}
-]
+[{"nombre":"Juan","apellido":"Pérez","celular":2235465515,"username":"Pepito","password":"12345","estado":true},
+  {"nombre":"María","apellido":"Gómez","celular":2235465515,"username":"Marielita","password":"258852","estado":true},
+  {"nombre":"Carlos","apellido":"Rodríguez","celular":2235465515,"username":"Carlote","password":"carlos123","estado":true},
+  {"nombre":"Juan","apellido":"García","celular":2235465515,"username":"Juanjo","password":"juan123","estado":true},
+  {"nombre":"Marcos","apellido":"Villarreal","celular":2234469206,"username":"Mark","password":"marcos321","estado":true},
+  {"nombre":"Luciano","apellido":"Ruffinengo","celular":2235689071,"username":"Luchito","password":"lucho2001","estado":true}]
