@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00ed91b1-e11a-44c4-81a9-4f0d718ab37f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Interfaces/IEstado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Menus/MenuComplejo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Menus/MenuInicSecion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Menus/MenuOpcionUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Menus/MenuReserva.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Hoteleria/HabitacionEstandar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Hoteleria/HabitacionEstandar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Hoteleria/HabitacionFamiliar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Hoteleria/HabitacionFamiliar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Hoteleria/HabitacionPremium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Hoteleria/HabitacionPremium.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Hoteleria/Hoteleria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Hoteleria/Hoteleria.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Persona/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Persona/Persona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Usuarios.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Usuarios.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Usuarios.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Usuarios.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,17 +39,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Marcos/Desktop/facu/laboratorio 3/GITHUB PROFE/Programacion2023-main/EjemploJson",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Marcos/Desktop/facu/laboratorio 3/GITHUB PROFE/Programacion2023-main/EjemploJson&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
