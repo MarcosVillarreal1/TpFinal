@@ -2,7 +2,8 @@ package org.example.Hoteleria;
 
 public class HabitacionEstandar extends Hoteleria{
 
-    private static final String estado = "Habitacion Estandar";
+    private static double precio = 3000;
+    private static final String tipo = "Habitacion Estandar";
     public HabitacionEstandar(boolean estado, double precio) {
         super(estado, precio);
     }
