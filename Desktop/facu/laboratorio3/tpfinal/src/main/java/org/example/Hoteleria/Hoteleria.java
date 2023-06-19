@@ -35,4 +35,6 @@ public abstract class Hoteleria implements IEstado {
         return  "Estado: " + estado + "\n" +
                 "Precio: $" + precio;
     }
+
+
 }

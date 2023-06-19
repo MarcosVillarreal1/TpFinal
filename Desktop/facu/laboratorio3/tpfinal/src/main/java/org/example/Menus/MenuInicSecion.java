@@ -6,86 +6,88 @@ import org.example.Usuario;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class MenuInicSecion {
     public static void menuUsuario(){
         Scanner scanner = new Scanner(System.in);
-        int opcion;
+        boolean salida = false;
 
+        String user;
+        String pass;
+        boolean flag = false;
+        int intentos = 0;
+        Usuario usuario = new Usuario();
         do {
             mostrarMenuInicial();
-            System.out.print("Ingrese una opción: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
-            boolean estaOno;
-            String user;
-            String pass;
-            boolean flag = false;
-            int intentos = 0;
-            Usuario usuario = new Usuario();
-
-            switch (opcion) {
-                case 1:
-                    do {
-                        System.out.println("Username: ");
-                        user = scanner.nextLine();
-                        usuario = buscarUser(user);
-                        //consulta si hay datos en usuario. si no hay datos es por que el username no existe
-                        if (usuario.getUsername() != null){
-                            if(usuario.isEstado())
-                            {
-                                do {
-                                    //uso usuario para que verifique el password del ese usuario y no que compare con todos los del archivo
-                                    System.out.println("Password: ");
-                                    pass = scanner.nextLine();
-                                    //estaOno = buscarPass(pass);
-                                    if (usuario.getPassword().equals(pass)){
-                                        MenuComplejo.menuComplejo();
-                                        //llamar al menu complejo
-                                        flag = true;
-                                    }
-                                    else
-                                    {
-                                        //cuenta los intentos disponibles
-                                        intentos++;
-                                        System.out.println("Contraseña incorrecta. Tiene " + (4 - intentos) + " intentos mas");
-                                    }
-                                }while(!flag && intentos != 4);
+            int opcion ;
+            try
+            {
+                System.out.print("Ingrese una opción: ");
+                opcion = Integer.parseInt(scanner.nextLine());
+                scanner.nextLine();
+                switch (opcion) {
+                    case 1:
+                        do {
+                            System.out.println("Username: ");
+                            user = scanner.nextLine();
+                            usuario = buscarUser(user);
+                            //consulta si hay datos en usuario. si no hay datos es por que el username no existe
+                            if (usuario.getUsername() != null){
+                                if(usuario.isEstado())
+                                {
+                                    do {
+                                        //uso usuario para que verifique el password del ese usuario y no que compare con todos los del archivo
+                                        System.out.println("Password: ");
+                                        pass = scanner.nextLine();
+                                        //estaOno = buscarPass(pass);
+                                        if (usuario.getPassword().equals(pass)){
+                                            MenuComplejo.menuComplejo(usuario);
+                                            //llamar al menu complejo
+                                            flag = true;
+                                        }
+                                        else
+                                        {
+                                            //cuenta los intentos disponibles
+                                            intentos++;
+                                            System.out.println("Contraseña incorrecta. Tiene " + (4 - intentos) + " intentos mas");
+                                        }
+                                    }while(!flag && intentos != 4);
+                                }else
+                                {
+                                    System.out.println("El usuario no esta disponible, para activarlo seleccione la opcion 'Opciones de Usuario' " +
+                                            "y luego seleccione 'Recuperar cuenta'");
+                                    flag = false;
+                                }
                             }else
                             {
-                                System.out.println("El usuario no esta disponible, para activarlo seleccione la opcion 'Opciones de Usuario' " +
-                                        "y luego seleccione 'Recuperar cuenta'");
-                                flag = false;
+                                System.out.println("El nombre de usuario no existe");
                             }
-                        }else
-                        {
-                            System.out.println("El nombre de usuario no existe");
-                        }
-                    }while(!flag && intentos != 4);
+                        }while(!flag && intentos != 4);
 
-                    break;
-                case 2:
-                    setearDatos(usuario, flag);
-                    MenuComplejo.menuComplejo();
-                    break;
-                case 3:
-                    MenuOpcionUser.menuOpcionUser();
-                    //llamada al menu de opciones de usuario ---> contiene 3 opciones 1)dar de baja el usuario 2)recuperar la cuenta
-                    //                                            3) modificar datos del usuario -> idea para las altas, bajas y modificaciones
-                    break;
-                case 0:
-                    break;
-                default:
-                    System.out.println("La opcion introducida es invalida.");
-                    break;
+                        break;
+                    case 2:
+                        setearDatos(usuario, flag);
+                        MenuComplejo.menuComplejo(usuario);
+                        break;
+                    case 3:
+                        MenuOpcionUser.menuOpcionUser();
+                        //llamada al menu de opciones de usuario ---> contiene 3 opciones 1)dar de baja el usuario 2)recuperar la cuenta
+                        //                                            3) modificar datos del usuario -> idea para las altas, bajas y modificaciones
+                        break;
+                    case 0:
+                        salida = true;
+                        break;
+                    default:
+                        System.out.println("La opcion introducida es invalida.");
+                        break;
+                }
+            }catch(NumberFormatException e)
+            {
+                System.out.println("Dato ingresado incorrecto, por favor ingrese un numero.");
             }
-
+        } while (!salida);
             System.out.println();
-        } while (opcion != 0);
 
         scanner.close();
     }

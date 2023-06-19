@@ -14,7 +14,7 @@ public class Usuario extends Persona {
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellido, Integer celular, String username, String password, boolean estado) {
+    public Usuario(String nombre, String apellido, long celular, String username, String password, boolean estado) {
         super(nombre, apellido, celular);
         this.username = username;
         this.password = password;

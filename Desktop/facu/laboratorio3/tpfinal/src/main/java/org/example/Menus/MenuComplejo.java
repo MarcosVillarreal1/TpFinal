@@ -1,9 +1,11 @@
 package org.example.Menus;
 
+import org.example.Usuario;
+
 import java.util.Scanner;
 
 public class MenuComplejo {
-        public static void menuComplejo()
+        public static void menuComplejo(Usuario usuario)
         {
             Scanner scanner = new Scanner(System.in);
             int opcion;
@@ -20,7 +22,7 @@ public class MenuComplejo {
                         mostrarInformacion(opcion);
                         break;
                     case 2 :
-                        //menu reserva
+                        //MenuReserva
                         break;
                     case 3:
                         mostrarInformacion(opcion);

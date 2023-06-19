@@ -16,125 +16,118 @@ public class MenuOpcionUser {
     {
         Scanner scanner = new Scanner(System.in);
         int opcion;
+        String user;
+        String pass;
+        boolean flag = false;
+        boolean salida = false;
+        int intentos = 0;
+        Usuario usuario = new Usuario();
 
         do {
-            mostrarMenuUser();
-            System.out.print("Ingrese una opción: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
-            String user;
-            String pass;
-            boolean flag = false;
-            int intentos = 0;
-            Usuario usuario = new Usuario();
+            try {
+                mostrarMenuUser();
+                System.out.print("Ingrese una opción: ");
+                opcion = Integer.parseInt(scanner.nextLine());
+                scanner.nextLine();
 
-            switch(opcion)
+                switch (opcion) {
+                    case 1:
+                        do {
+                            System.out.println("Username: ");
+                            user = scanner.nextLine();
+                            usuario = buscarUser(user);
+                            //consulta si hay datos en usuario. si no hay datos es por que el username no existe
+                            if (usuario.getUsername() != null) {
+                                if (usuario.isEstado()) {
+                                    do {
+                                        //uso usuario para que verifique el password de ese usuario y no que compare con todos los del archivo
+                                        System.out.println("Password: ");
+                                        pass = scanner.nextLine();
+                                        //estaOno = buscarPass(pass);
+                                        if (usuario.getPassword().equals(pass)) {
+                                            usuario.setEstado(false);
+                                            flag = true;
+                                            actualizarArchUsuarios(usuario);
+                                        } else {
+                                            //cuenta los intentos disponibles
+                                            intentos++;
+                                            System.out.println("Contraseña incorrecta. Tiene " + (4 - intentos) + " intentos mas");
+                                        }
+                                    } while (!flag && intentos != 4);
+                                } else {
+                                    System.out.println("El usuario ya se ha dado de baja");
+                                }
+                            } else {
+                                System.out.println("El nombre de usuario no existe");
+                            }
+                        } while (!flag && intentos != 4);
+                        break;
+                    case 2:
+                        do {
+                            System.out.println("Username: ");
+                            user = scanner.nextLine();
+                            usuario = buscarUser(user);
+                            if (usuario.getUsername() != null) {
+                                if (usuario.isEstado()) {
+                                    System.out.println("El usuario ya esta activo");
+                                } else {
+                                    do {
+                                        //uso usuario para que verifique el password de ese usuario y no que compare con todos los del archivo
+                                        System.out.println("Password: ");
+                                        pass = scanner.nextLine();
+                                        //estaOno = buscarPass(pass);
+                                        if (usuario.getPassword().equals(pass)) {
+                                            usuario.setEstado(true);
+                                            flag = true;
+                                            actualizarArchUsuarios(usuario);
+                                        } else {
+                                            //cuenta los intentos disponibles
+                                            intentos++;
+                                            System.out.println("Contraseña incorrecta. Tiene " + (4 - intentos) + " intentos mas");
+                                        }
+                                    } while (!flag && intentos != 4);
+                                }
+                            }
+                        } while (!flag && intentos != 4);
+                        break;
+                    case 3:
+                        do {
+                            System.out.println("Ingrese su nombre de usuario: ");
+                            user = scanner.nextLine();
+                            usuario = buscarUser(user);
+                            if (usuario.getUsername() != null) {
+                                do {
+                                    //uso usuario para que verifique el password de ese usuario y no que compare con todos los del archivo
+                                    System.out.println("Password: ");
+                                    pass = scanner.nextLine();
+                                    //estaOno = buscarPass(pass);
+                                    if (usuario.getPassword().equals(pass)) {
+                                        setearDatos(usuario, flag);
+                                        actualizarArchUsuarios(usuario);
+                                        flag = true;
+                                    } else {
+                                        //cuenta los intentos disponibles
+                                        intentos++;
+                                        System.out.println("Contraseña incorrecta. Tiene " + (4 - intentos) + " intentos mas");
+                                    }
+                                } while (!flag && intentos != 4);
+                            } else {
+                                System.out.println("El nombre de usuario no existe");
+                            }
+                        } while (!flag);
+                        break;
+                    case 0:
+                        salida = true;
+                        break;
+                    default:
+                        System.out.println("La opcion introducida es invalida.");
+                        break;
+                }
+            }catch(NumberFormatException e)
             {
-                case 1:
-                    do {
-                        System.out.println("Username: ");
-                        user = scanner.nextLine();
-                        usuario = buscarUser(user);
-                        //consulta si hay datos en usuario. si no hay datos es por que el username no existe
-                        if (usuario.getUsername() != null){
-                            if(usuario.isEstado())
-                            {
-                                do {
-                                    //uso usuario para que verifique el password de ese usuario y no que compare con todos los del archivo
-                                    System.out.println("Password: ");
-                                    pass = scanner.nextLine();
-                                    //estaOno = buscarPass(pass);
-                                    if (usuario.getPassword().equals(pass)){
-                                        usuario.setEstado(false);
-                                        flag = true;
-                                        actualizarArchUsuarios(usuario);
-                                    }
-                                    else
-                                    {
-                                        //cuenta los intentos disponibles
-                                        intentos++;
-                                        System.out.println("Contraseña incorrecta. Tiene " + (4 - intentos) + " intentos mas");
-                                    }
-                                }while(!flag && intentos != 4);
-                            }else
-                            {
-                                System.out.println("El usuario ya se ha dado de baja");
-                            }
-                        }else
-                        {
-                            System.out.println("El nombre de usuario no existe");
-                        }
-                    }while(!flag && intentos != 4);
-                    break;
-                case 2 :
-                    do {
-                        System.out.println("Username: ");
-                        user = scanner.nextLine();
-                        usuario = buscarUser(user);
-                        if (usuario.getUsername() != null)
-                        {
-                            if(usuario.isEstado())
-                            {
-                                System.out.println("El usuario ya esta activo");
-                            }else
-                            {
-                                do {
-                                    //uso usuario para que verifique el password de ese usuario y no que compare con todos los del archivo
-                                    System.out.println("Password: ");
-                                    pass = scanner.nextLine();
-                                    //estaOno = buscarPass(pass);
-                                    if (usuario.getPassword().equals(pass)){
-                                        usuario.setEstado(true);
-                                        flag = true;
-                                        actualizarArchUsuarios(usuario);
-                                    }
-                                    else
-                                    {
-                                        //cuenta los intentos disponibles
-                                        intentos++;
-                                        System.out.println("Contraseña incorrecta. Tiene " + (4 - intentos) + " intentos mas");
-                                    }
-                                }while(!flag && intentos != 4);
-                            }
-                        }
-                    }while(!flag && intentos != 4);
-                    break;
-                case 3:
-                    do {
-                        System.out.println("Ingrese su nombre de usuario: ");
-                        user = scanner.nextLine();
-                        usuario = buscarUser(user);
-                        if (usuario.getUsername() != null){
-                            do {
-                                //uso usuario para que verifique el password de ese usuario y no que compare con todos los del archivo
-                                System.out.println("Password: ");
-                                pass = scanner.nextLine();
-                                //estaOno = buscarPass(pass);
-                                if (usuario.getPassword().equals(pass)){
-                                    setearDatos(usuario, flag);
-                                    actualizarArchUsuarios(usuario);
-                                    flag = true;
-                                }
-                                else
-                                {
-                                    //cuenta los intentos disponibles
-                                    intentos++;
-                                    System.out.println("Contraseña incorrecta. Tiene " + (4 - intentos) + " intentos mas");
-                                }
-                            }while(!flag && intentos != 4);
-                        }else
-                        {
-                            System.out.println("El nombre de usuario no existe");
-                        }
-                    }while(!flag);
-                    break;
-                case 0:
-                    break;
-                default:
-                    System.out.println("La opcion introducida es invalida.");
-                    break;
+                System.out.println("Dato ingresado incorrecto, por favor ingrese un numero.");
             }
-        }while(opcion != 0);
+        }while(!salida);
     }
 
     public static void mostrarMenuUser()
@@ -227,6 +220,7 @@ public class MenuOpcionUser {
     public static Usuario setearDatos(Usuario usuario, boolean flag)
     {
         boolean estaOno;
+        boolean salir = false;
         String dato;
         int opcion;
         Usuario usuario2 = new Usuario();
@@ -234,60 +228,63 @@ public class MenuOpcionUser {
 
         do
         {
-            flag = false;
-            opcionesDeSeteo();
-            System.out.print("Ingrese una opción: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
-            switch(opcion)
+            try {
+                flag = false;
+                opcionesDeSeteo();
+                System.out.print("Ingrese una opción: ");
+                opcion = scanner.nextInt();
+                scanner.nextLine();
+                switch (opcion) {
+                    case 1:
+                        System.out.println("Name: ");
+                        usuario.setNombre(scanner.nextLine());
+                        break;
+                    case 2:
+                        System.out.println("Surname: ");
+                        usuario.setApellido(scanner.nextLine());
+                        break;
+                    case 3:
+                        System.out.println("Phone number: ");
+                        usuario.setCelular(scanner.nextLong());
+                        break;
+                    case 4:
+                        do {
+                            System.out.println("Username: ");
+                            dato = scanner.nextLine();
+                            usuario2 = buscarUser(dato);
+                            if (usuario2.getUsername() == null) {
+                                flag = true;
+                                usuario.setUsername(dato);
+                            } else {
+                                System.out.println("El usuario ya esta tomado, por favor ingrese otro nombre de usuario");
+                            }
+                        } while (!flag);
+                        break;
+                    case 5:
+                        do {
+                            System.out.println("Password: ");
+                            dato = scanner.nextLine();
+                            estaOno = buscarPass(dato);
+                            if (!estaOno) {
+                                flag = true;
+                                usuario.setPassword(dato);
+                            } else {
+                                System.out.println("La password ya esta utilizada, por favor ingrese otra.");
+                            }
+                        } while (!flag);
+                        break;
+                    case 0:
+                        salir = true;
+                        break;
+                    default:
+                        System.out.println("La opcion introducida es invalida.");
+                        break;
+                }
+            }catch(NumberFormatException e)
             {
-                case 1:
-                    System.out.println("Name: ");
-                    usuario.setNombre(scanner.nextLine());
-                    break;
-                case 2:
-                    System.out.println("Surname: ");
-                    usuario.setApellido(scanner.nextLine());
-                    break;
-                case 3:
-                    System.out.println("Phone number: ");
-                    usuario.setCelular(scanner.nextLong());
-                    break;
-                case 4:
-                    do {
-                        System.out.println("Username: ");
-                        dato = scanner.nextLine();
-                        usuario2 = buscarUser(dato);
-                        if (usuario2.getUsername() == null)
-                        {
-                            flag = true;
-                            usuario.setUsername(dato);
-                        } else
-                        {
-                            System.out.println("El usuario ya esta tomado, por favor ingrese otro nombre de usuario");
-                        }
-                    }while(!flag);
-                    break;
-                case 5:
-                    do {
-                        System.out.println("Password: ");
-                        dato = scanner.nextLine();
-                        estaOno = buscarPass(dato);
-                        if (!estaOno) {
-                            flag = true;
-                            usuario.setPassword(dato);
-                        } else {
-                            System.out.println("La password ya esta utilizada, por favor ingrese otra.");
-                        }
-                    }while(!flag);
-                    break;
-                case 0:
-                    break;
-                default:
-                    System.out.println("La opcion introducida es invalida.");
-                    break;
+                System.out.println("Dato ingresado incorrecto, por favor ingrese un numero.");
             }
-        }while(opcion != 0);
+        }while(!salir);
         return usuario;
     }
 
