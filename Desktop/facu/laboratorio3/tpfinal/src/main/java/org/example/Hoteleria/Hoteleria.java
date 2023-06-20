@@ -4,7 +4,7 @@ import org.example.Interfaces.IEstado;
 
 public abstract class Hoteleria implements IEstado {
     private boolean estado;
-    /*private double precio;*/
+    private double precio;
 
     public Hoteleria() {
     }

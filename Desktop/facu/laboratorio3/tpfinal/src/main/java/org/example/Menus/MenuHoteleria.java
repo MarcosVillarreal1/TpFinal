@@ -14,15 +14,23 @@ import java.util.Scanner;
 
 public class MenuHoteleria {
 
-    public static void menuHoteleria()
+    public static void menuHoteleria(Reserva reserva)
     {
+        reserva = reserva;
         Scanner scanner = new Scanner(System.in);
+
         boolean salir = false;
         int opcion;
-        Reserva reserva = new Reserva();
+
+
         String tipoHab;
         //boolean habilitada;
         LocalDate fechaInic;
+
+        System.out.println("1. Habitacion Estandar");
+        System.out.println("2. Habitacion Familiar");
+        System.out.println("3. Habitacion Premium");
+
 
         do {
             try {
@@ -30,6 +38,10 @@ public class MenuHoteleria {
                 System.out.print("Ingrese una opción: ");
                 opcion = scanner.nextInt();
                 scanner.nextLine();
+
+
+
+
 
                 switch (opcion) {
                     case 1:

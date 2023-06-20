@@ -13,15 +13,25 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MenuSpa {
-    public static void menuHoteleria()
+
+    public MenuSpa() {
+    }
+
+    public static void menuSpa(Reserva reserva)
     {
+
         Scanner scanner = new Scanner(System.in);
         boolean salir = false;
         int opcion;
-        Reserva reserva = new Reserva();
         String tipoHab;
         //boolean habilitada;
         LocalDate fechaInic;
+
+        System.out.println("1. Dia");
+        System.out.println("2. Estadia");
+        System.out.println("3. Premium");
+
+
 
         do {
             try {

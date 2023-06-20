@@ -50,19 +50,21 @@ public class Reserva {
     }
 
     public FormaPago getFormaPago() {
-        return formaPago;
+//        return formaPago;
+        return null;
     }
 
     public void setFormaPago(FormaPago formaPago) {
-        this.formaPago = formaPago;
+//        this.formaPago = formaPago;
     }
 
     public double getSaldoAPagar() {
-        return saldoAPagar;
+//        return saldoAPagar;
+        return 0.00;
     }
 
     public void setSaldoAPagar(double saldoAPagar) {
-        this.saldoAPagar = saldoAPagar;
+//        this.saldoAPagar = saldoAPagar;
     }
 
 
