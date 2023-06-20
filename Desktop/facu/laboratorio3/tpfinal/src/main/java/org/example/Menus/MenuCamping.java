@@ -13,15 +13,24 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MenuCamping {
-    public static void menuCamping()
+
+    private Reserva reserva;
+
+    public MenuCamping() {
+    }
+
+    public static void menuCamping(Reserva reserva)
     {
+
         Scanner scanner = new Scanner(System.in);
         boolean salir = false;
         int opcion;
-        Reserva reserva = new Reserva();
         String tipoHab;
         //boolean habilitada;
         LocalDate fechaInic;
+
+        System.out.println("1. Carpa");
+        System.out.println("2. Cabaña");
 
         do {
             try {

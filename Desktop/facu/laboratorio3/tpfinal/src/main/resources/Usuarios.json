@@ -1,7 +1,56 @@
-[{"nombre":"Juan","apellido":"Pérez","celular":223546515,"username":"Pepito","password":"12345","estado":true,"idUsuario":"cec0ee8b-cb63-44db-8af9-d4fa605020d9"},
-  {"nombre":"María","apellido":"Gómez","celular":223454563,"username":"Marielita","password":"258852","estado":true,"idUsuario":"98ca5b0e-91d8-469a-862d-c84e78334e0b"},
-  {"nombre":"Carlos","apellido":"Rodríguez","celular":223545515,"username":"Carlote","password":"carlos123","estado":true,"idUsuario":"d6c3b8f5-6782-499a-a562-2063c5ac453a"},
-  {"nombre":"Juan","apellido":"García","celular":223546555,"username":"Juanjo","password":"juan123","estado":true,"idUsuario":"a9405bcd-2d65-4fcf-ae72-c93717057bce"},
-  {"nombre":"Marcos","apellido":"Villarreal","celular":223565515,"username":"Mark","password":"marcos321","estado":true,"idUsuario":"256c7837-0007-47c0-91f3-6fd91e5b95f4"},
-  {"nombre":"Luciano","apellido":"Ruffinengo","celular":223569071,"username":"Luchoman","password":"lucho2001","estado":true,"idUsuario":"73e8d517-500b-48ed-824a-7ccc5e257355"}
+[
+  {
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "celular": 223546515,
+    "username": "Pepito",
+    "password": "12345",
+    "estado": true,
+    "idUsuario": "cec0ee8b-cb63-44db-8af9-d4fa605020d9"
+  },
+  {
+    "nombre": "María",
+    "apellido": "Gómez",
+    "celular": 223454563,
+    "username": "Marielita",
+    "password": "258852",
+    "estado": true,
+    "idUsuario": "98ca5b0e-91d8-469a-862d-c84e78334e0b"
+  },
+  {
+    "nombre": "Carlos",
+    "apellido": "Rodríguez",
+    "celular": 223545515,
+    "username": "Carlote",
+    "password": "carlos123",
+    "estado": true,
+    "idUsuario": "d6c3b8f5-6782-499a-a562-2063c5ac453a"
+  },
+  {
+    "nombre": "Juan",
+    "apellido": "García",
+    "celular": 223546555,
+    "username": "Juanjo",
+    "password": "juan123",
+    "estado": true,
+    "idUsuario": "a9405bcd-2d65-4fcf-ae72-c93717057bce"
+  },
+  {
+    "nombre": "Marcos",
+    "apellido": "Villarreal",
+    "celular": 223565515,
+    "username": "Mark",
+    "password": "marcos321",
+    "estado": true,
+    "idUsuario": "256c7837-0007-47c0-91f3-6fd91e5b95f4"
+  },
+  {
+    "nombre": "Luciano",
+    "apellido": "Ruffinengo",
+    "celular": 223569071,
+    "username": "Luchoman",
+    "password": "lucho2001",
+    "estado": true,
+    "idUsuario": "73e8d517-500b-48ed-824a-7ccc5e257355"
+  }
 ]
