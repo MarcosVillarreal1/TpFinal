@@ -41,7 +41,7 @@ public class MenuCamping {
 
                 switch (opcion) {
                     case 1:
-                        System.out.println("informacion de la zona de camping");
+                        System.out.println("-Incluye: \n-Amplias parcelas. \n-Toma corriente 220 volts. \n-Área de sombra. \n-Fogón individual. \n-Alambrado olímpico perimetral. \n-Vigilancia permanente. \n-Sanitarios completos. \n-Agua caliente de 7 a 22 hs.");
 
                         tipoHab = "Carpa";
                         System.out.println("Esta seguro de reservar un espacio de camping? Presione 's' para si, cualquier letra para no ");
@@ -60,7 +60,7 @@ public class MenuCamping {
 
                         break;
                     case 2:
-                        System.out.println("informacion de la cabaña");
+                        System.out.println("Incluye: \n-1 cama matrimonial. \n-3 camas de 1 plaza. \n-Estacionamiento para un auto. \n-Heladera. \n-Mesa y sillas. \n-Parrilla individual. \n-Baño privado completo. \n-Anafe dos hornallas.");
 
                         tipoHab = "Cabaña";
                         System.out.println("Esta seguro de reservar una cabaña? Presione 's' para si, cualquier letra para no ");

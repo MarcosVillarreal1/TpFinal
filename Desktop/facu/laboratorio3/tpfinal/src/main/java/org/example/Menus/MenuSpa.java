@@ -42,7 +42,8 @@ public class MenuSpa {
 
                 switch (opcion) {
                     case 1:
-                        System.out.println("informacion de la opcion dia");
+                        System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada.");
+
 
                         tipoHab = "Dia";
                         System.out.println("Esta seguro de reservar esta opcion del spa? Presione 's' para si, cualquier letra para no ");
@@ -62,7 +63,7 @@ public class MenuSpa {
 
                         break;
                     case 2:
-                        System.out.println("informacion de la opcion estadia");
+                        System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada. \n-Gabinete de estetica facial y corporal");
 
                         tipoHab = "Estadia";
                         System.out.println("Esta seguro de reservar esta opcion del spa? Presione 's' para si, cualquier letra para no ");
@@ -81,7 +82,7 @@ public class MenuSpa {
                         }
                         break;
                     case 3:
-                        System.out.println("informacion de la opcion premium");
+                        System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada. \n-Gabinete de estetica facial y corporal. \n-Gimnasio con aparatos y personal trainer. \n-Salas de relax");
 
                         tipoHab = "Premium";
                         System.out.println("Esta seguro de reservar esta opcion del spa? Presione 's' para si, cualquier letra para no ");

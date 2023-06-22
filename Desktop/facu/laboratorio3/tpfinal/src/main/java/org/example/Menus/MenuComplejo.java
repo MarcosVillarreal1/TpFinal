@@ -62,10 +62,12 @@ public class MenuComplejo {
         while (opc != 0) {
             switch (opc) {
                 case 1:
-                    System.out.println("Ingrese informacion sobre el complejo aquie"); //poner la informacion;
+                    System.out.println("*** Bienvenidos *** \nEn 2023 abrió sus puertas Complejo Haras del Sur, un espacio único de descanso y esparcimiento para toda la comunidad."); //poner la informacion;
+                    System.out.println("\n");
                     break;
                 case 3:
-                    System.out.println("Ingrese informacion de como llegar aqui"); //poner la informacion;
+                    System.out.println("Dirección: Autovía 2 Km 69 - La Plata Mano a Mar del Plata \nTelefono: (0221) 492 3900 |  (0221) 15 306 5521 \nEmail: info@harasdelsur.com  \nHorario de Atención: Lunes a Domingos de 8 a 24 hs"); //poner la informacion;
+                    System.out.println("\n");
                     break;
                 case 0:
                     break;

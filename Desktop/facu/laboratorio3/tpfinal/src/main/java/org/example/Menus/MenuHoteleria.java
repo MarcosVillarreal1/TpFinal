@@ -45,7 +45,7 @@ public class MenuHoteleria {
 
                 switch (opcion) {
                     case 1:
-                        System.out.println("informacion de la habitacion estandar");
+                        System.out.println("Incluye: \n-Cama matrimonial. \n-Room service. \n-Desayuno buffet. \n-Valet parking. \n-Frigobar.");
 
                         tipoHab = "Habitacion Estandar";
                         System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
@@ -63,7 +63,7 @@ public class MenuHoteleria {
                         }
                         break;
                     case 2:
-                        System.out.println("informacion de la habitacion familiar");
+                        System.out.println("Incluye: \n-Cama matrimonial y 2 camas individuales. \n-Room service. \n-Desayuno buffet. \n-Valet parking \n-Frigobar. \n-Wi-Fi . \n-TV-LED y video cable.");
 
                         tipoHab = "Habitacion Familiar";
                         System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
@@ -81,7 +81,7 @@ public class MenuHoteleria {
                         }
                         break;
                     case 3:
-                        System.out.println("informacion de la habitacion premium");
+                        System.out.println("Incluye: \n-Cama matrimonial y 2 camas individuales. \n-Room service. \n-Desayuno buffet. \n-Valet parking \n-Frigobar. \n-Wi-Fi . \n-TV-LED y video cable. \n-Jacuzzi. \n-Aire acondicionado. \n-Caja de Seguridad digital ");
 
                         tipoHab = "Habitacion Premium";
                         System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
