@@ -9,6 +9,7 @@ public class Reserva {
     private UUID idReserva;
     //private LocalDate fechaInicial;
     //private LocalDate fechaFinal;
+    private int cantDias;
     private Usuario cliente;
     private double importeReserva;
     //private FormaPago formaPago;
@@ -18,8 +19,16 @@ public class Reserva {
     public Reserva() {
     }
 
-    public Reserva(UUID idReserva, Usuario cliente, double importeReserva, String producto) {
+    public Reserva(Usuario cliente, double importeReserva, String producto) {
         this.idReserva = UUID.randomUUID();
+        this.cliente = cliente;
+        this.importeReserva = importeReserva;
+        this.producto = producto;
+    }
+
+    public Reserva(int cantDias, Usuario cliente, double importeReserva, String producto) {
+        this.idReserva = UUID.randomUUID();
+        this.cantDias = cantDias;
         this.cliente = cliente;
         this.importeReserva = importeReserva;
         this.producto = producto;
@@ -49,21 +58,6 @@ public class Reserva {
         this.importeReserva = importeReserva;
     }
 
-    public FormaPago getFormaPago() {
-        return formaPago;
-    }
-
-    public void setFormaPago(FormaPago formaPago) {
-        this.formaPago = formaPago;
-    }
-
-    public double getSaldoAPagar() {
-        return saldoAPagar;
-    }
-
-    public void setSaldoAPagar(double saldoAPagar) {
-        this.saldoAPagar = saldoAPagar;
-    }
 
 
     public enum FormaPago

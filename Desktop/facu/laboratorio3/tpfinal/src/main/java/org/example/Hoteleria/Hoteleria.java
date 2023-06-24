@@ -2,15 +2,18 @@ package org.example.Hoteleria;
 
 import org.example.Interfaces.IEstado;
 
-public abstract class Hoteleria implements IEstado {
+public class Hoteleria implements IEstado {
     private boolean estado;
+    private String descripcion;
+
     private double precio;
 
     public Hoteleria() {
     }
 
-    public Hoteleria(boolean estado, double precio) {
+    public Hoteleria(boolean estado, String descripcion, double precio) {
         this.estado = estado;
+        this.descripcion = descripcion;
         this.precio = precio;
     }
 
@@ -22,6 +25,14 @@ public abstract class Hoteleria implements IEstado {
         this.estado = estado;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     public double getPrecio() {
         return precio;
     }
@@ -31,9 +42,19 @@ public abstract class Hoteleria implements IEstado {
     }
 
     @Override
+    public void cambioEstado() {
+        if(isEstado())
+        {
+            setEstado(false);
+        }else
+        {
+            setEstado(true);
+        }
+    }
+
+    @Override
     public String toString() {
-        return  "Estado: " + estado + "\n" +
-                "Precio: $" + precio;
+        return  "Estado: " + estado + "\n";
     }
 
 
