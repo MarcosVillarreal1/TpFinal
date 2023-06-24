@@ -18,7 +18,11 @@ public class MenuSpa {
     public MenuSpa() {
     }
 
+<<<<<<< HEAD
     public static void menuSpa(Reserva reserva, Usuario usuario)
+=======
+    public static void menuSpa(Reserva reserva, Usuario user)
+>>>>>>> 6fa3c5a60e2b575828126fd2d1cc4a7abc3ca0c8
     {
 
         Scanner scanner = new Scanner(System.in);
