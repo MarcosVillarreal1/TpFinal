@@ -24,15 +24,12 @@ public class MenuSpa {
         Scanner scanner = new Scanner(System.in);
         boolean salir = false;
         int opcion;
-        String tipoHab;
+        String tipoSpa;
         //boolean habilitada;
-        LocalDate fechaInic;
 
         System.out.println("1. Dia");
         System.out.println("2. Estadia");
         System.out.println("3. Premium");
-
-
 
         do {
             try {
@@ -46,58 +43,35 @@ public class MenuSpa {
                         System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada.");
 
 
-                        tipoHab = "Spa Dia";
+                        tipoSpa = "Spa Dia";
                         System.out.println("Esta seguro de reservar esta opcion del spa? Presione 's' para si, cualquier letra para no ");
                         SN = (char) scanner.nextInt();
                         if(SN == 's')
                         {
-                            System.out.println("introduzca la fecha inicial de su reserva"); //-> dentro del metodo busqueda
-                            System.out.println("introduzca la fecha final de su reserva"); //-> dentro del metodo busqueda
-                            // metodo de buscar la reservas con el mismo producto en una lista de reservas sacadas del archivo
-                            // comparo fechas iniciales y finales y retorno un booleano viendo si esa fecha esta habil o no
-                            //if(habilitada)
-                            //reserva.metodo de setearDatosReserva
-                            //actualizarArchReservas(reserva);
-                            //else
-                            //sout-> no hay habitaciones estandar habilitadas
+
                         }
 
                         break;
                     case 2:
                         System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada. \n-Gabinete de estetica facial y corporal");
 
-                        tipoHab = "Spa Estadia";
+                        tipoSpa = "Spa Estadia";
                         System.out.println("Esta seguro de reservar esta opcion del spa? Presione 's' para si, cualquier letra para no ");
                         SN = (char) scanner.nextInt();
                         if(SN == 's')
                         {
-                            System.out.println("introduzca la fecha inicial de su reserva"); //-> dentro del metodo busqueda
-                            System.out.println("introduzca la fecha final de su reserva"); //-> dentro del metodo busqueda
-                            // metodo de buscar la reservas con el mismo producto en una lista de reservas sacadas del archivo
-                            // comparo fechas iniciales y finales y retorno un booleano viendo si esa fecha esta habil o no
-                            //if(habilitada)
-                            //reserva.metodo de setearDatosReserva
-                            //actualizarArchReservas(reserva);
-                            //else
-                            //sout-> no hay habitaciones estandar habilitadas
+
                         }
                         break;
                     case 3:
                         System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada. \n-Gabinete de estetica facial y corporal. \n-Gimnasio con aparatos y personal trainer. \n-Salas de relax");
 
-                        tipoHab = "Spa Premium";
+                        tipoSpa = "Spa Premium";
                         System.out.println("Esta seguro de reservar esta opcion del spa? Presione 's' para si, cualquier letra para no ");
                         SN = (char) scanner.nextInt();
                         if(SN == 's')
                         {
-                            System.out.println("introduzca la fecha inicial de su reserva"); //-> dentro del metodo busqueda
-                            System.out.println("introduzca la fecha final de su reserva"); //-> dentro del metodo busqueda
 
-                            //if(habilitada)
-                            //reserva.metodo de setearDatosReserva
-                            //actualizarArchReservas(reserva);
-                            //else
-                            //sout-> no hay habitaciones estandar habilitadas
                         }
                         break;
                     case 0:

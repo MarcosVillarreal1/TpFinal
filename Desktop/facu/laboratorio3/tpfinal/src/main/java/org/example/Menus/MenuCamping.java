@@ -26,7 +26,7 @@ public class MenuCamping {
         Scanner scanner = new Scanner(System.in);
         boolean salir = false;
         int opcion;
-        String tipoHab;
+        String tipoCamp;
         //boolean habilitada;
         LocalDate fechaInic;
 
@@ -44,39 +44,23 @@ public class MenuCamping {
                     case 1:
                         System.out.println("-Incluye: \n-Amplias parcelas. \n-Toma corriente 220 volts. \n-Área de sombra. \n-Fogón individual. \n-Alambrado olímpico perimetral. \n-Vigilancia permanente. \n-Sanitarios completos. \n-Agua caliente de 7 a 22 hs.");
 
-                        tipoHab = "Carpa";
+                        tipoCamp = "Carpa";
                         System.out.println("Esta seguro de reservar un espacio de camping? Presione 's' para si, cualquier letra para no ");
                         SN = (char) scanner.nextInt();
                         if(SN == 's')
                         {
-                            System.out.println("introduzca la fecha inicial de su reserva"); //-> dentro del metodo busqueda
-                            System.out.println("introduzca la fecha final de su reserva"); //-> dentro del metodo busqueda
 
-                            //if(habilitada)
-                            //reserva.metodo de setearDatosReserva
-                            //actualizarArchReservas(reserva);
-                            //else
-                            //sout-> no hay habitaciones estandar habilitadas
                         }
-
                         break;
                     case 2:
                         System.out.println("Incluye: \n-1 cama matrimonial. \n-3 camas de 1 plaza. \n-Estacionamiento para un auto. \n-Heladera. \n-Mesa y sillas. \n-Parrilla individual. \n-Baño privado completo. \n-Anafe dos hornallas.");
 
-                        tipoHab = "Cabaña";
+                        tipoCamp = "Cabaña";
                         System.out.println("Esta seguro de reservar una cabaña? Presione 's' para si, cualquier letra para no ");
                         SN = (char) scanner.nextInt();
                         if(SN == 's')
                         {
-                            System.out.println("introduzca la fecha inicial de su reserva"); //-> dentro del metodo busqueda
-                            System.out.println("introduzca la fecha final de su reserva"); //-> dentro del metodo busqueda
-                            // metodo de buscar la reservas con el mismo producto en una lista de reservas sacadas del archivo
-                            // comparo fechas iniciales y finales y retorno un booleano viendo si esa fecha esta habil o no
-                            //if(habilitada)
-                            //reserva.metodo de setearDatosReserva
-                            //actualizarArchReservas(reserva);
-                            //else
-                            //sout-> no hay habitaciones estandar habilitadas
+
                         }
                         break;
                     case 0:

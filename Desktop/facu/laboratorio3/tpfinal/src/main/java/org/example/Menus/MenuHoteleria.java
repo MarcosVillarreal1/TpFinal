@@ -1,6 +1,7 @@
 package org.example.Menus;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.Hoteleria.Hoteleria;
 import org.example.Reserva;
 import org.example.Usuario;
 
@@ -36,6 +37,7 @@ public class MenuHoteleria {
                 System.out.print("Ingrese una opción: ");
                 opcion = scanner.nextInt();
                 scanner.nextLine();
+                int cont;
 
 
 
@@ -62,40 +64,63 @@ public class MenuHoteleria {
                         {
                             System.out.println("Opcion invalida, use letras por favor");
                         }
+                        cont = verificarDispo(tipoHab);
+                        if (cont == 0){
+                            System.out.println("No hay habitaciones disponibles de este tipo.");
+                        }else {
+                            System.out.println("Cuantos dias desea reservar?: ");
+                            int cantDias = scanner.nextInt();
+                            Double importe = (double) (cantDias * 3000);
+                            System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
+                            SN = (char) scanner.nextInt();
+                            if(SN == 's')
+                            {
+                                reserva.setearDatos(usuario, importe, tipoHab);
+                                recorrerArchHab(tipoHab);
+                                actualizarArchReservas(reserva);
+                            }
+
+                        }
                     case 2:
                         System.out.println("Incluye: \n-Cama matrimonial y 2 camas individuales. \n-Room service. \n-Desayuno buffet. \n-Valet parking \n-Frigobar. \n-Wi-Fi . \n-TV-LED y video cable.");
 
                         tipoHab = "Habitacion Familiar";
-                        System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
-                        SN = (char) scanner.nextInt();
-                        if(SN == 's')
-                        {
-                            System.out.println("introduzca la fecha inicial de su reserva"); //-> dentro del metodo busqueda
-                            System.out.println("introduzca la fecha final de su reserva"); //-> dentro del metodo busqueda
-
-                            //if(habilitada)
-                            //reserva.metodo de setearDatosReserva
-                            //actualizarArchReservas(reserva);
-                            //else
-                            //sout-> no hay habitaciones estandar habilitadas
+                        cont = verificarDispo(tipoHab);
+                        if (cont == 0){
+                            System.out.println("No hay habitaciones disponibles de este tipo.");
+                        }else {
+                            System.out.println("Cuantos dias desea reservar?: ");
+                            int cantDias = scanner.nextInt();
+                            Double importe = (double) (cantDias * 5000);
+                            System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
+                            SN = (char) scanner.nextInt();
+                            if(SN == 's')
+                            {
+                                reserva.setearDatos(usuario, importe, tipoHab);
+                                recorrerArchHab(tipoHab);
+                                actualizarArchReservas(reserva);
+                            }
                         }
                         break;
                     case 3:
                         System.out.println("Incluye: \n-Cama matrimonial y 2 camas individuales. \n-Room service. \n-Desayuno buffet. \n-Valet parking \n-Frigobar. \n-Wi-Fi . \n-TV-LED y video cable. \n-Jacuzzi. \n-Aire acondicionado. \n-Caja de Seguridad digital ");
 
                         tipoHab = "Habitacion Premium";
-                        System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
-                        SN = (char) scanner.nextInt();
-                        if(SN == 's')
-                        {
-                            //System.out.println("introduzca la fecha inicial de su reserva"); //-> dentro del metodo busqueda
-                            //System.out.println("introduzca la fecha final de su reserva"); //-> dentro del metodo busqueda
-
-                            //if(habilitada)
-                            //reserva.metodo de setearDatosReserva
-                            //actualizarArchReservas(reserva);
-                            //else
-                            //sout-> no hay habitaciones estandar habilitadas
+                        cont = verificarDispo(tipoHab);
+                        if (cont == 0){
+                            System.out.println("No hay habitaciones disponibles de este tipo.");
+                        }else {
+                            System.out.println("Cuantos dias desea reservar?: ");
+                            int cantDias = scanner.nextInt();
+                            Double importe = (double) (cantDias * 10000);
+                            System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
+                            SN = (char) scanner.nextInt();
+                            if(SN == 's')
+                            {
+                                reserva.setearDatos(usuario, importe, tipoHab);
+                                recorrerArchHab(tipoHab);
+                                actualizarArchReservas(reserva);
+                            }
                         }
                         break;
                     case 0:
@@ -110,6 +135,60 @@ public class MenuHoteleria {
                 System.out.println("Dato ingresado incorrecto, por favor ingrese un numero.");
             }
         }while(!salir);
+    }
+
+    public static int verificarDispo(String tipoHab)
+    {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            // Lee el JSON desde un archivo
+            Hoteleria[] arrayHab = objectMapper.readValue(new File("src/main/resources/Habitaciones.json"), Hoteleria[].class);
+            // Accede a los objetos Persona
+            for (Hoteleria habitacion : arrayHab) {
+
+                if (habitacion.getTipo().equals(tipoHab)){
+                    if (habitacion.getEstado()){
+                        return 1;
+                    }
+                }
+
+                System.out.println();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static void recorrerArchHab(String tipoHab)
+    {
+        ObjectMapper objectMapper = new ObjectMapper();
+        int i = 0;
+        List<Hoteleria> habitaciones = new ArrayList<>();
+
+        try {
+            // Lee el JSON desde un archivo
+            Hoteleria[] arrayHab = objectMapper.readValue(new File("src/main/resources/Habitaciones.json"), Hoteleria[].class);
+            habitaciones.addAll(Arrays.asList(arrayHab));
+            // Accede a los objetos Persona
+            for (Hoteleria habitacion : habitaciones) {
+
+                if (habitacion.getTipo().equals(tipoHab)){
+                    if (habitacion.getEstado()){
+                        habitaciones.get(i).cambioEstado();
+                    }
+                }
+                i++;
+                System.out.println();
+            }
+            String jsonActualizado = objectMapper.writeValueAsString(habitaciones);
+            FileWriter fileWriter = new FileWriter("src/main/resources/Habitaciones.json");
+            fileWriter.write(jsonActualizado);
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void actualizarArchReservas(Reserva reserva) {
@@ -140,3 +219,4 @@ public class MenuHoteleria {
         }
     }
 }
+
