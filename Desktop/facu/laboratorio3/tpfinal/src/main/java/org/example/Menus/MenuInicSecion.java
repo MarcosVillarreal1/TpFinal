@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class MenuInicSecion {
-    public static void menuUsuario(){
+    public static void menuUsuario() {
         Scanner scanner = new Scanner(System.in);
         boolean salida = false;
 
@@ -20,9 +20,8 @@ public class MenuInicSecion {
         Usuario usuario = new Usuario();
         do {
             mostrarMenuInicial();
-            int opcion ;
-            try
-            {
+            int opcion;
+            try {
                 System.out.print("Ingrese una opción: ");
                 opcion = Integer.parseInt(scanner.nextLine());
                 scanner.nextLine();
@@ -33,37 +32,32 @@ public class MenuInicSecion {
                             user = scanner.nextLine();
                             usuario = buscarUser(user);
                             //consulta si hay datos en usuario. si no hay datos es por que el username no existe
-                            if (usuario.getUsername() != null){
-                                if(usuario.isEstado())
-                                {
+                            if (usuario.getUsername() != null) {
+                                if (usuario.isEstado()) {
                                     do {
                                         //uso usuario para que verifique el password del ese usuario y no que compare con todos los del archivo
                                         System.out.println("Password: ");
                                         pass = scanner.nextLine();
                                         //estaOno = buscarPass(pass);
-                                        if (usuario.getPassword().equals(pass)){
+                                        if (usuario.getPassword().equals(pass)) {
                                             MenuComplejo.menuComplejo(usuario);
                                             //llamar al menu complejo
                                             flag = true;
-                                        }
-                                        else
-                                        {
+                                        } else {
                                             //cuenta los intentos disponibles
                                             intentos++;
                                             System.out.println("Contraseña incorrecta. Tiene " + (4 - intentos) + " intentos mas");
                                         }
-                                    }while(!flag && intentos != 4);
-                                }else
-                                {
+                                    } while (!flag && intentos != 4);
+                                } else {
                                     System.out.println("El usuario no esta disponible, para activarlo seleccione la opcion 'Opciones de Usuario' " +
                                             "y luego seleccione 'Recuperar cuenta'");
                                     flag = false;
                                 }
-                            }else
-                            {
+                            } else {
                                 System.out.println("El nombre de usuario no existe");
                             }
-                        }while(!flag && intentos != 4);
+                        } while (!flag && intentos != 4);
 
                         break;
                     case 2:
@@ -82,12 +76,11 @@ public class MenuInicSecion {
                         System.out.println("La opcion introducida es invalida.");
                         break;
                 }
-            }catch(NumberFormatException e)
-            {
+            } catch (NumberFormatException e) {
                 System.out.println("Dato ingresado incorrecto, por favor ingrese un numero.");
             }
         } while (!salida);
-            System.out.println();
+        System.out.println();
 
         scanner.close();
     }
@@ -104,7 +97,7 @@ public class MenuInicSecion {
         System.out.println("***************************");
     }
 
-    public static Usuario buscarUser(String usuario){
+    public static Usuario buscarUser(String usuario) {
         ObjectMapper objectMapper = new ObjectMapper();
         Usuario usuario1 = new Usuario();
 
@@ -114,7 +107,7 @@ public class MenuInicSecion {
 
             // Accede a los objetos Usuario
             for (Usuario user : usuarios) {
-                if (user.getUsername().equals(usuario)){
+                if (user.getUsername().equals(usuario)) {
                     usuario1 = user;
                 }
             }
@@ -124,7 +117,7 @@ public class MenuInicSecion {
         return usuario1;
     }
 
-    public static boolean buscarPass(String pass){
+    public static boolean buscarPass(String pass) {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
@@ -133,7 +126,7 @@ public class MenuInicSecion {
 
             // Accede a los objetos Usuario
             for (Usuario user : usuarios) {
-                if (pass.equals(user.getPassword())){
+                if (pass.equals(user.getPassword())) {
                     return true;
                 }
             }
@@ -171,8 +164,7 @@ public class MenuInicSecion {
         }
     }
 
-    public static Usuario setearDatos(Usuario usuario, boolean flag)
-    {
+    public static Usuario setearDatos(Usuario usuario, boolean flag) {
         boolean estaOno;
         Usuario usuario2 = new Usuario();
         Scanner scanner = new Scanner(System.in);
@@ -189,7 +181,7 @@ public class MenuInicSecion {
             System.out.println("Username: ");
             usuario.setUsername(scanner.nextLine());
             usuario2 = buscarUser(usuario.getUsername());
-            if (usuario2.getUsername() == null){
+            if (usuario2.getUsername() == null) {
                 do {
                     System.out.println("Password: ");
                     usuario.setPassword(scanner.nextLine());
@@ -200,12 +192,11 @@ public class MenuInicSecion {
                     } else {
                         System.out.println("La password ya esta utilizada, por favor ingrese otra.");
                     }
-                }while(!flag);
-            }else
-            {
+                } while (!flag);
+            } else {
                 System.out.println("El usuario ya esta tomado, por favor ingrese otro nombre de usuario");
             }
-        }while(!flag);
+        } while (!flag);
         return usuario;
     }
 }

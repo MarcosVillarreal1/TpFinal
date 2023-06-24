@@ -6,15 +6,13 @@ public class Hoteleria implements IEstado {
     private boolean estado;
     private String descripcion;
 
-    private double precio;
 
     public Hoteleria() {
     }
 
-    public Hoteleria(boolean estado, String descripcion, double precio) {
+    public Hoteleria(boolean estado, String descripcion) {
         this.estado = estado;
         this.descripcion = descripcion;
-        this.precio = precio;
     }
 
     public boolean isEstado() {
@@ -31,14 +29,6 @@ public class Hoteleria implements IEstado {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
     }
 
     @Override

@@ -2,6 +2,7 @@ package org.example.Menus;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.Reserva;
+import org.example.Usuario;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -13,15 +14,25 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MenuSpa {
-    public static void menuHoteleria()
+
+    public MenuSpa() {
+    }
+
+    public static void menuSpa(Reserva reserva, Usuario usuario)
     {
+
         Scanner scanner = new Scanner(System.in);
         boolean salir = false;
         int opcion;
-        Reserva reserva = new Reserva();
         String tipoHab;
         //boolean habilitada;
         LocalDate fechaInic;
+
+        System.out.println("1. Dia");
+        System.out.println("2. Estadia");
+        System.out.println("3. Premium");
+
+
 
         do {
             try {
@@ -32,9 +43,10 @@ public class MenuSpa {
 
                 switch (opcion) {
                     case 1:
-                        System.out.println("informacion de la opcion dia");
+                        System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada.");
 
-                        tipoHab = "Dia";
+
+                        tipoHab = "Spa Dia";
                         System.out.println("Esta seguro de reservar esta opcion del spa? Presione 's' para si, cualquier letra para no ");
                         SN = (char) scanner.nextInt();
                         if(SN == 's')
@@ -52,9 +64,9 @@ public class MenuSpa {
 
                         break;
                     case 2:
-                        System.out.println("informacion de la opcion estadia");
+                        System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada. \n-Gabinete de estetica facial y corporal");
 
-                        tipoHab = "Estadia";
+                        tipoHab = "Spa Estadia";
                         System.out.println("Esta seguro de reservar esta opcion del spa? Presione 's' para si, cualquier letra para no ");
                         SN = (char) scanner.nextInt();
                         if(SN == 's')
@@ -71,9 +83,9 @@ public class MenuSpa {
                         }
                         break;
                     case 3:
-                        System.out.println("informacion de la opcion premium");
+                        System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada. \n-Gabinete de estetica facial y corporal. \n-Gimnasio con aparatos y personal trainer. \n-Salas de relax");
 
-                        tipoHab = "Premium";
+                        tipoHab = "Spa Premium";
                         System.out.println("Esta seguro de reservar esta opcion del spa? Presione 's' para si, cualquier letra para no ");
                         SN = (char) scanner.nextInt();
                         if(SN == 's')
