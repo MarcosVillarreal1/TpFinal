@@ -29,11 +29,11 @@ public class MenuReserva {
                     break;
                 case 2:
                     // Menú de camping
-                    MenuCamping.menuCamping(reserva);
+                    MenuCamping.menuCamping(reserva, usuario);
                     break;
                 case 3:
                     // Menú de spa
-                    MenuSpa.menuSpa(reserva);
+                    MenuSpa.menuSpa(reserva, usuario);
                     break;
                 case 0:
                     System.out.println("Saliendo del menú de reserva...");

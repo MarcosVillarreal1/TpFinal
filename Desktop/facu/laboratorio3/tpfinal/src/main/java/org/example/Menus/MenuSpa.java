@@ -2,6 +2,7 @@ package org.example.Menus;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.Reserva;
+import org.example.Usuario;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -17,7 +18,7 @@ public class MenuSpa {
     public MenuSpa() {
     }
 
-    public static void menuSpa(Reserva reserva)
+    public static void menuSpa(Reserva reserva, Usuario user)
     {
 
         Scanner scanner = new Scanner(System.in);
