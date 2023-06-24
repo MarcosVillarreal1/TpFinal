@@ -1,6 +1,7 @@
 package org.example.Menus;
 
 import org.example.Reserva;
+import org.example.Usuario;
 
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class MenuReserva {
     public MenuReserva() {
     }
 
-    public static void menuReserva() {
+    public static void menuReserva(Usuario usuario) {
         Scanner scanner = new Scanner(System.in);
         int opcion;
 
@@ -24,7 +25,7 @@ public class MenuReserva {
             switch (opcion) {
                 case 1:
                     // Menú de hotelería
-                    MenuHoteleria.menuHoteleria(reserva);
+                    MenuHoteleria.menuHoteleria(reserva, usuario);
                     break;
                 case 2:
                     // Menú de camping

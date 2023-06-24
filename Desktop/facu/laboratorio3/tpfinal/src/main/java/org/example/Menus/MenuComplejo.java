@@ -29,7 +29,7 @@ public class MenuComplejo {
                     mostrarInformacion(opcion);
                     break;
                 case 2:
-                    MenuReserva.menuReserva();
+                    MenuReserva.menuReserva(usuario);
                     break;
                 case 3:
                     mostrarInformacion(opcion);

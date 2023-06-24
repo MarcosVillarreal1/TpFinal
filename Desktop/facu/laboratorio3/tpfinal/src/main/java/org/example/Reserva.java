@@ -43,6 +43,11 @@ import com.fasterxml.jackson.core.type.TypeReference;
             this.idReserva = idReserva;
         }
 
+        public void setearDatos(Usuario cli, Double importe, String desc){
+             setCliente(cli);
+             setImporteReserva(importe);
+             setProducto(desc);
+        }
         public Usuario getCliente() {
             return cliente;
         }
@@ -78,7 +83,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
         }
 
 
+        public String getProducto() {
+            return producto;
+        }
 
+        public void setProducto(String producto) {
+            this.producto = producto;
+        }
 
         public enum FormaPago
         {
