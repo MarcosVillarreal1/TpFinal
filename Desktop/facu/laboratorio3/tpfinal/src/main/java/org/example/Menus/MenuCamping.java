@@ -1,6 +1,9 @@
 package org.example.Menus;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.Camping.Cabaña;
+import org.example.Camping.Camping;
+import org.example.Hoteleria.Hoteleria;
 import org.example.Reserva;
 import org.example.Usuario;
 
@@ -20,11 +23,10 @@ public class MenuCamping {
     public MenuCamping() {
     }
 
-<<<<<<< HEAD
-    public static void menuCamping(Reserva reserva, Usuario usuario)
-=======
+
+
     public static void menuCamping(Reserva reserva, Usuario user)
->>>>>>> 6fa3c5a60e2b575828126fd2d1cc4a7abc3ca0c8
+
     {
 
         Scanner scanner = new Scanner(System.in);
@@ -80,6 +82,57 @@ public class MenuCamping {
             }
         }while(!salir);
     }
+
+
+    public static int verificarDispo()
+    {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            // Lee el JSON desde un archivo
+            Cabaña[] arrayCab = objectMapper.readValue(new File("src/main/resources/Cabañas.json"), Cabaña[].class);
+            // Accede a los objetos Cabaña
+            for (Cabaña cabaña : arrayCab) {
+                if (cabaña.isEstado()) {
+                    return 1;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+        public static void recorrerArchHab()
+        {
+            ObjectMapper objectMapper = new ObjectMapper();
+            int i = 0;
+            List<Cabaña> cabañas = new ArrayList<>();
+
+            try {
+                // Lee el JSON desde un archivo
+                Cabaña[] arrayCab = objectMapper.readValue(new File("src/main/resources/Cabañas.json"), Cabaña[].class);
+                cabañas.addAll(Arrays.asList(arrayCab));
+
+                // Accede a los objetos Cabaña
+
+                for (Cabaña cabaña : cabañas) {
+                    if (cabaña.isEstado()) {
+                        cabañas.get(i).cambioEstado();
+                    }
+                    i++;
+                }
+
+                String jsonActualizado = objectMapper.writeValueAsString(cabañas);
+                FileWriter fileWriter = new FileWriter("src/main/resources/Cabañas.json");
+                fileWriter.write(jsonActualizado);
+                fileWriter.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
 
     public static void actualizarArchReservas(Reserva reserva) {
         ObjectMapper objectMapper = new ObjectMapper();
