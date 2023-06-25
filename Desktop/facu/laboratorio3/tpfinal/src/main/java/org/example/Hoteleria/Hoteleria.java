@@ -5,22 +5,13 @@ import org.example.Interfaces.IEstado;
 public class Hoteleria implements IEstado {
         private String tipo;
         private boolean estado;
-        private String descripcion;
-
 
         public Hoteleria() {
         }
 
-        public Hoteleria(String tipo, boolean estado, String descripcion) {
+        public Hoteleria(String tipo, boolean estado) {
             this.tipo = tipo;
             this.estado = estado;
-            this.descripcion = descripcion;
-        }
-
-        public Hoteleria(String tipo, boolean estado, double precio) {
-            this.tipo = tipo;
-            this.estado = estado;
-            this.descripcion = descripcion;
         }
 
         public String getTipo() {
@@ -37,14 +28,6 @@ public class Hoteleria implements IEstado {
 
         public void setEstado(boolean estado) {
             this.estado = estado;
-        }
-
-        public String getDescripcion() {
-            return descripcion;
-        }
-
-        public void setDescripcion(String descripcion) {
-            this.descripcion = descripcion;
         }
 
         @Override

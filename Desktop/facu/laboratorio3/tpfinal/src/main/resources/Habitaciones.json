@@ -1,15 +1,1 @@
-[{"tipo":"Habitacion Estandar","estado":false,"descripcion":null},
-  {"tipo":"Habitacion Familiar","estado":true,"descripcion":null},
-  {"tipo":"Habitacion Premium","estado":true,"descripcion":null},
-  {"tipo":"Habitacion Estandar","estado":true,"descripcion":null},
-  {"tipo":"Habitacion Familiar","estado":true,"descripcion":null},
-  {"tipo":"Habitacion Premium","estado":true,"descripcion":null},
-  {"tipo":"Habitacion Estandar","estado":true,"descripcion":null},
-  {"tipo":"Habitacion Familiar","estado":true,"descripcion":null},
-  {"tipo":"Habitacion Premium","estado":true,"descripcion":null},
-  {"tipo":"Habitacion Estandar","estado":true,"descripcion":null},
-  {"tipo":"Habitacion Familiar","estado":true,"descripcion":null},
-  {"tipo":"Habitacion Premium","estado":true,"descripcion":null},
-  {"tipo":"Habitacion Estandar","estado":true,"descripcion":null},
-  {"tipo":"Habitacion Familiar","estado":true,"descripcion":null},
-  {"tipo":"Habitacion Premium","estado":true,"descripcion":null}]
+[{"tipo":"Habitacion Estandar","estado":false},{"tipo":"Habitacion Familiar","estado":false},{"tipo":"Habitacion Premium","estado":false},{"tipo":"Habitacion Estandar","estado":false},{"tipo":"Habitacion Familiar","estado":true},{"tipo":"Habitacion Premium","estado":false},{"tipo":"Habitacion Estandar","estado":true},{"tipo":"Habitacion Familiar","estado":true},{"tipo":"Habitacion Premium","estado":true},{"tipo":"Habitacion Estandar","estado":true},{"tipo":"Habitacion Familiar","estado":true},{"tipo":"Habitacion Premium","estado":true},{"tipo":"Habitacion Estandar","estado":true},{"tipo":"Habitacion Familiar","estado":true},{"tipo":"Habitacion Premium","estado":true}]

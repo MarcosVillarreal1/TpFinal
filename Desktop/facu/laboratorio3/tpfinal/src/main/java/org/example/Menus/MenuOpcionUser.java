@@ -7,10 +7,7 @@ import org.example.Usuario;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class MenuOpcionUser implements IMetodosUser {
     public void menuOpcionUser()
@@ -29,7 +26,6 @@ public class MenuOpcionUser implements IMetodosUser {
                 mostrarMenuUser();
                 System.out.print("Ingrese una opción: ");
                 opcion = Integer.parseInt(scanner.nextLine());
-                scanner.nextLine();
 
                 switch (opcion) {
                     case 1:

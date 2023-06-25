@@ -27,7 +27,7 @@ public class MenuSpa implements IArchivoReserva {
         do {
             mostrarMenuSpa();
             try {
-                String SN = "a";
+                String SN;
                 System.out.print("Ingrese una opción: ");
                 opcion = scanner.nextInt();
                 scanner.nextLine();
@@ -35,7 +35,7 @@ public class MenuSpa implements IArchivoReserva {
                 switch (opcion) {
                     case 1:
                         System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada.");
-
+                        System.out.println("precio: $2000 /dia");
 
                         tipoSpa = "Spa Dia";
                         System.out.println("Cuantas dias desea reservar?: ");
@@ -45,10 +45,18 @@ public class MenuSpa implements IArchivoReserva {
 
                         System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
                         try {
+                            scanner.nextLine();
                             SN = scanner.nextLine();
-                            if(SN.equalsIgnoreCase("s")) {
-                                reserva.setearDatos(user, cantDias, importe, tipoSpa);
-                                actualizarArchReservas(reserva);
+                            if(SN.matches("[A-Z]*") || SN.matches("[a-z]*"))
+                            {
+                                if(SN.equalsIgnoreCase("s")) {
+                                    reserva.setearDatos(user, cantDias, importe, tipoSpa);
+                                    actualizarArchReservas(reserva);
+                                }
+
+                            }else
+                            {
+                                throw new InputMismatchException();
                             }
                         } catch (InputMismatchException e) {
                             System.out.println("Opcion invalida, use letras por favor");
@@ -57,6 +65,7 @@ public class MenuSpa implements IArchivoReserva {
                         break;
                     case 2:
                         System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada. \n-Gabinete de estetica facial y corporal");
+                        System.out.println("precio: $5000 /dia");
 
                         tipoSpa = "Spa Estadia";
                         System.out.println("Cuantas dias desea reservar?: ");
@@ -66,10 +75,18 @@ public class MenuSpa implements IArchivoReserva {
 
                         System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
                         try {
+                            scanner.nextLine();
                             SN = scanner.nextLine();
-                            if(SN.equalsIgnoreCase("s")) {
-                                reserva.setearDatos(user, cantDias, importe, tipoSpa);
-                                actualizarArchReservas(reserva);
+                            if(SN.matches("[A-Z]*") || SN.matches("[a-z]*"))
+                            {
+                                if(SN.equalsIgnoreCase("s")) {
+                                    reserva.setearDatos(user, cantDias, importe, tipoSpa);
+                                    actualizarArchReservas(reserva);
+                                }
+
+                            }else
+                            {
+                                throw new InputMismatchException();
                             }
                         } catch (InputMismatchException e) {
                             System.out.println("Opcion invalida, use letras por favor");
@@ -77,6 +94,7 @@ public class MenuSpa implements IArchivoReserva {
                         break;
                     case 3:
                         System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada. \n-Gabinete de estetica facial y corporal. \n-Gimnasio con aparatos y personal trainer. \n-Salas de relax");
+                        System.out.println("precio: $7000 /dia");
 
                         tipoSpa = "Spa Premium";
                         System.out.println("Cuantas dias desea reservar?: ");
@@ -86,10 +104,18 @@ public class MenuSpa implements IArchivoReserva {
 
                         System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
                         try {
+                            scanner.nextLine();
                             SN = scanner.nextLine();
-                            if(SN.equalsIgnoreCase("s")) {
-                                reserva.setearDatos(user, cantDias, importe, tipoSpa);
-                                actualizarArchReservas(reserva);
+                            if(SN.matches("[A-Z]*") || SN.matches("[a-z]*"))
+                            {
+                                if(SN.equalsIgnoreCase("s")) {
+                                    reserva.setearDatos(user, cantDias, importe, tipoSpa);
+                                    actualizarArchReservas(reserva);
+                                }
+
+                            }else
+                            {
+                                throw new InputMismatchException();
                             }
                         } catch (InputMismatchException e) {
                             System.out.println("Opcion invalida, use letras por favor");

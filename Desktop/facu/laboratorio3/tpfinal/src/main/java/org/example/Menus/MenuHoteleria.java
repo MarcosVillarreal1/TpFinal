@@ -62,11 +62,17 @@ public class MenuHoteleria implements IArchivoReserva {
                             try {
                                 scanner.nextLine();
                                 SN = scanner.nextLine();
-                                if(SN.equalsIgnoreCase("s"))
+                                if(SN.matches("[A-Z]*") || SN.matches("[a-z]*"))
                                 {
-                                    reserva.setearDatos(usuario, cantDias, importe, tipoHab);
-                                    recorrerArchHab(tipoHab);
-                                    actualizarArchReservas(reserva);
+                                    if(SN.equalsIgnoreCase("s")) {
+                                        reserva.setearDatos(usuario, cantDias, importe, tipoHab);
+                                        recorrerArchHab(tipoHab);
+                                        actualizarArchReservas(reserva);
+                                    }
+
+                                }else
+                                {
+                                    throw new InputMismatchException();
                                 }
                             }catch(InputMismatchException e)
                             {
@@ -93,11 +99,17 @@ public class MenuHoteleria implements IArchivoReserva {
                             try {
                                 scanner.nextLine();
                                 SN = scanner.nextLine();
-                                if(SN.equalsIgnoreCase("s"))
+                                if(SN.matches("[A-Z]*") || SN.matches("[a-z]*"))
                                 {
-                                    reserva.setearDatos(usuario, cantDias, importe, tipoHab);
-                                    recorrerArchHab(tipoHab);
-                                    actualizarArchReservas(reserva);
+                                    if(SN.equalsIgnoreCase("s")) {
+                                        reserva.setearDatos(usuario, cantDias, importe, tipoHab);
+                                        recorrerArchHab(tipoHab);
+                                        actualizarArchReservas(reserva);
+                                    }
+
+                                }else
+                                {
+                                    throw new InputMismatchException();
                                 }
                             }catch(InputMismatchException e)
                             {
@@ -123,11 +135,17 @@ public class MenuHoteleria implements IArchivoReserva {
                             try {
                                 scanner.nextLine();
                                 SN = scanner.nextLine();
-                                if(SN.equalsIgnoreCase("s"))
+                                if(SN.matches("[A-Z]*") || SN.matches("[a-z]*"))
                                 {
-                                    reserva.setearDatos(usuario, cantDias, importe, tipoHab);
-                                    recorrerArchHab(tipoHab);
-                                    actualizarArchReservas(reserva);
+                                    if(SN.equalsIgnoreCase("s")) {
+                                        reserva.setearDatos(usuario, cantDias, importe, tipoHab);
+                                        recorrerArchHab(tipoHab);
+                                        actualizarArchReservas(reserva);
+                                    }
+
+                                }else
+                                {
+                                    throw new InputMismatchException();
                                 }
                             }catch(InputMismatchException e)
                             {
@@ -175,8 +193,6 @@ public class MenuHoteleria implements IArchivoReserva {
                         return 1;
                     }
                 }
-
-                System.out.println();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -204,7 +220,6 @@ public class MenuHoteleria implements IArchivoReserva {
                     }
                 }
                 i++;
-                System.out.println();
             }
             String jsonActualizado = objectMapper.writeValueAsString(habitaciones);
             FileWriter fileWriter = new FileWriter("src/main/resources/Habitaciones.json");

@@ -29,7 +29,7 @@ public class MenuCamping implements IArchivoReserva {
         do {
             mostrarMenuCamping();
             try {
-                String SN = "a";
+                String SN;
                 int cont;
                 System.out.print("Ingrese una opción: ");
                 opcion = scanner.nextInt();
@@ -49,10 +49,18 @@ public class MenuCamping implements IArchivoReserva {
 
                         System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
                         try {
+                            scanner.nextLine();
                             SN = scanner.nextLine();
-                            if(SN.equalsIgnoreCase("s")) {
-                                reserva.setearDatos(user, cantDias, importe, tipoCamp);
-                                actualizarArchReservas(reserva);
+                            if(SN.matches("[A-Z]*") || SN.matches("[a-z]*"))
+                            {
+                                if(SN.equalsIgnoreCase("s")) {
+                                    reserva.setearDatos(user, cantDias, importe, tipoCamp);
+                                    actualizarArchReservas(reserva);
+                                }
+
+                            }else
+                            {
+                                throw new InputMismatchException();
                             }
                         } catch (InputMismatchException e) {
                             System.out.println("Opcion invalida, use letras por favor");
@@ -74,11 +82,18 @@ public class MenuCamping implements IArchivoReserva {
 
                             System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
                             try {
+                                scanner.nextLine();
                                 SN = scanner.nextLine();
-                                if(SN.equalsIgnoreCase("s")) {
-                                    reserva.setearDatos(user, cantDias, importe, tipoCamp);
-                                    recorrerArchCab();
-                                    actualizarArchReservas(reserva);
+                                if(SN.matches("[A-Z]*") || SN.matches("[a-z]*"))
+                                {
+                                    if(SN.equalsIgnoreCase("s")) {
+                                        reserva.setearDatos(user, cantDias, importe, tipoCamp);
+                                        actualizarArchReservas(reserva);
+                                    }
+
+                                }else
+                                {
+                                    throw new InputMismatchException();
                                 }
                             } catch (InputMismatchException e) {
                                 System.out.println("Opcion invalida, use letras por favor");

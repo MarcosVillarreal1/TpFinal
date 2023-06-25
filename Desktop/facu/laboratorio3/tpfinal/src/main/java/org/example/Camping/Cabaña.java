@@ -6,8 +6,11 @@ public class Cabaña extends Camping implements IEstado {
 
     private boolean estado;
 
-    public Cabaña(boolean estado) {
-        super.setTipo("cabaña");
+    public Cabaña() {
+    }
+
+    public Cabaña(String tipo, boolean estado) {
+        super(tipo);
         this.estado = estado;
     }
 

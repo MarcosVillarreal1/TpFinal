@@ -1,11 +1,1 @@
-[{"Tipo": "Cabaña 1","Estado": true},
-  {"Tipo": "Cabaña 2","Estado": true },
-  {"Tipo": "Cabaña 3","Estado": true},
-  {"Tipo": "Cabaña 4","Estado": true},
-  {"Tipo": "Cabaña 5","Estado": true},
-  {"Tipo": "Cabaña 6","Estado": true},
-  {"Tipo": "Cabaña 7","Estado": true},
-  {"Tipo": "Cabaña 8","Estado": true},
-  {"Tipo": "Cabaña 9","Estado": true},
-  {"Tipo": "Cabaña 10","Estado": true}
-]
+[{"tipo":"Cabaña 1","estado":false},{"tipo":"Cabaña 2","estado":false},{"tipo":"Cabaña 3","estado":true},{"tipo":"Cabaña 4","estado":true},{"tipo":"Cabaña 5","estado":true},{"tipo":"Cabaña 6","estado":true},{"tipo":"Cabaña 7","estado":true},{"tipo":"Cabaña 8","estado":true},{"tipo":"Cabaña 9","estado":true},{"tipo":"Cabaña 10","estado":true}]

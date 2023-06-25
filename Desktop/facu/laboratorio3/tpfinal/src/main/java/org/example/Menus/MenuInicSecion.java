@@ -18,12 +18,13 @@ public class MenuInicSecion implements IMetodosUser {
 
         String user;
         String pass;
-        boolean flag = false;
+        boolean flag;
         int intentos = 0;
         Usuario usuario = new Usuario();
         do {
             mostrarMenuInicial();
             int opcion;
+            flag = false;
             try {
                 System.out.print("Ingrese una opción: ");
                 opcion = Integer.parseInt(scanner.nextLine());
@@ -54,7 +55,7 @@ public class MenuInicSecion implements IMetodosUser {
                                 } else {
                                     System.out.println("El usuario no esta disponible, para activarlo seleccione la opcion 'Opciones de Usuario' " +
                                             "y luego seleccione 'Recuperar cuenta'");
-                                    flag = false;
+                                    flag = true;
                                 }
                             } else {
                                 System.out.println("El nombre de usuario no existe");
@@ -179,6 +180,7 @@ public class MenuInicSecion implements IMetodosUser {
         usuario.setCelular(scanner.nextLong());
         scanner.nextLine();
         usuario.setEstado(true);
+        usuario.setIdUsuario(UUID.randomUUID());
         do {
             System.out.println("Username: ");
             usuario.setUsername(scanner.nextLine());
