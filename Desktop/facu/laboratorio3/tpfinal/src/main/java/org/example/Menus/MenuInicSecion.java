@@ -1,6 +1,7 @@
 package org.example.Menus;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.Interfaces.IMetodosUser;
 import org.example.Usuario;
 
 import java.io.File;
@@ -8,8 +9,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-public class MenuInicSecion {
-    public static void menuUsuario() {
+public class MenuInicSecion implements IMetodosUser {
+    MenuOpcionUser menuOpcionUsuario = new MenuOpcionUser();
+    MenuComplejo menuComp = new MenuComplejo();
+    public void menuUsuario() {
         Scanner scanner = new Scanner(System.in);
         boolean salida = false;
 
@@ -24,7 +27,6 @@ public class MenuInicSecion {
             try {
                 System.out.print("Ingrese una opción: ");
                 opcion = Integer.parseInt(scanner.nextLine());
-                scanner.nextLine();
                 switch (opcion) {
                     case 1:
                         do {
@@ -40,7 +42,7 @@ public class MenuInicSecion {
                                         pass = scanner.nextLine();
                                         //estaOno = buscarPass(pass);
                                         if (usuario.getPassword().equals(pass)) {
-                                            MenuComplejo.menuComplejo(usuario);
+                                            menuComp.menuComplejo(usuario);
                                             //llamar al menu complejo
                                             flag = true;
                                         } else {
@@ -62,10 +64,10 @@ public class MenuInicSecion {
                         break;
                     case 2:
                         setearDatos(usuario, flag);
-                        MenuComplejo.menuComplejo(usuario);
+                        menuComp.menuComplejo(usuario);
                         break;
                     case 3:
-                        MenuOpcionUser.menuOpcionUser();
+                        menuOpcionUsuario.menuOpcionUser();
                         //llamada al menu de opciones de usuario ---> contiene 3 opciones 1)dar de baja el usuario 2)recuperar la cuenta
                         //                                            3) modificar datos del usuario -> idea para las altas, bajas y modificaciones
                         break;
@@ -97,7 +99,7 @@ public class MenuInicSecion {
         System.out.println("***************************");
     }
 
-    public static Usuario buscarUser(String usuario) {
+    public Usuario buscarUser(String usuario) {
         ObjectMapper objectMapper = new ObjectMapper();
         Usuario usuario1 = new Usuario();
 
@@ -117,7 +119,7 @@ public class MenuInicSecion {
         return usuario1;
     }
 
-    public static boolean buscarPass(String pass) {
+    public boolean buscarPass(String pass) {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
@@ -136,7 +138,7 @@ public class MenuInicSecion {
         return false;
     }
 
-    public static void actualizarArchUsuarios(Usuario usuario) {
+    public void actualizarArchUsuarios(Usuario usuario) {
         ObjectMapper objectMapper = new ObjectMapper();
         List<Usuario> usuarios = new ArrayList<>();
 
@@ -164,7 +166,7 @@ public class MenuInicSecion {
         }
     }
 
-    public static Usuario setearDatos(Usuario usuario, boolean flag) {
+    public Usuario setearDatos(Usuario usuario, boolean flag) {
         boolean estaOno;
         Usuario usuario2 = new Usuario();
         Scanner scanner = new Scanner(System.in);

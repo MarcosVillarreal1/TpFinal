@@ -1,6 +1,7 @@
 package org.example.Menus;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.Interfaces.IMetodosUser;
 import org.example.Usuario;
 
 import java.io.File;
@@ -11,8 +12,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class MenuOpcionUser {
-    public static void menuOpcionUser()
+public class MenuOpcionUser implements IMetodosUser {
+    public void menuOpcionUser()
     {
         Scanner scanner = new Scanner(System.in);
         int opcion;
@@ -143,7 +144,7 @@ public class MenuOpcionUser {
         System.out.println("***************************");
     }
 
-    public static Usuario buscarUser(String usuario){
+    public Usuario buscarUser(String usuario){
         ObjectMapper objectMapper = new ObjectMapper();
         Usuario usuario1 = new Usuario();
 
@@ -163,7 +164,7 @@ public class MenuOpcionUser {
         return usuario1;
     }
 
-    public static boolean buscarPass(String pass){
+    public boolean buscarPass(String pass){
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
@@ -182,7 +183,7 @@ public class MenuOpcionUser {
         return false;
     }
 
-    public static void actualizarArchUsuarios(Usuario usuario) {
+    public void actualizarArchUsuarios(Usuario usuario) {
         ObjectMapper objectMapper = new ObjectMapper();
         List<Usuario> usuarios = new ArrayList<>();
         int i = 0;
@@ -217,7 +218,7 @@ public class MenuOpcionUser {
         }
     }
 
-    public static Usuario setearDatos(Usuario usuario, boolean flag)
+    public Usuario setearDatos(Usuario usuario, boolean flag)
     {
         boolean estaOno;
         boolean salir = false;

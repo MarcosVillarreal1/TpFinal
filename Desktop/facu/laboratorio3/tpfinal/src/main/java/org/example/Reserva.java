@@ -10,7 +10,7 @@ import java.util.UUID;
         private int cantDias;
         private double importeReserva;
         //private FormaPago formaPago;
-        private double saldoAPagar;
+        //private double saldoAPagar;
         private String producto;
 
     public Reserva() {
@@ -32,8 +32,10 @@ import java.util.UUID;
             this.idReserva = idReserva;
         }
 
-        public void setearDatos(Usuario cli, Double importe, String desc){
-             setCliente(cli);
+        public void setearDatos(Usuario cli, int cantDias, Double importe, String desc){
+            setIdReserva(UUID.randomUUID());
+            setCliente(cli);
+             setCantDias(cantDias);
              setImporteReserva(importe);
              setProducto(desc);
         }
@@ -53,7 +55,7 @@ import java.util.UUID;
             this.importeReserva = importeReserva;
         }
 
-        public FormaPago getFormaPago() {
+        /*public FormaPago getFormaPago() {
     //        return formaPago;
             return null;
         }
@@ -69,7 +71,7 @@ import java.util.UUID;
 
         public void setSaldoAPagar(double saldoAPagar) {
             this.saldoAPagar = saldoAPagar;
-        }
+        }*/
 
 
         public String getProducto() {
@@ -80,10 +82,18 @@ import java.util.UUID;
             this.producto = producto;
         }
 
-        public enum FormaPago
+        public int getCantDias() {
+            return cantDias;
+        }
+
+        public void setCantDias(int cantDias) {
+            this.cantDias = cantDias;
+        }
+
+        /*public enum FormaPago
         {
             CREDITO,
             DEBITO,
             EFECTIVO;
-        }
+        }*/
     }

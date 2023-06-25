@@ -7,10 +7,11 @@ import java.util.Scanner;
 
 public class MenuReserva {
 
-    public MenuReserva() {
-    }
+    MenuHoteleria menuHot = new MenuHoteleria();
+    MenuCamping menuCamp = new MenuCamping();
+    MenuSpa menuS = new MenuSpa();
 
-    public static void menuReserva(Usuario usuario) {
+    public void menuReserva(Usuario usuario) {
         Scanner scanner = new Scanner(System.in);
         int opcion;
 
@@ -25,15 +26,15 @@ public class MenuReserva {
             switch (opcion) {
                 case 1:
                     // Menú de hotelería
-                    MenuHoteleria.menuHoteleria(reserva, usuario);
+                    menuHot.menuHoteleria(reserva, usuario);
                     break;
                 case 2:
                     // Menú de camping
-                    MenuCamping.menuCamping(reserva, usuario);
+                    menuCamp.menuCamping(reserva, usuario);
                     break;
                 case 3:
                     // Menú de spa
-                    MenuSpa.menuSpa(reserva, usuario);
+                    menuS.menuSpa(reserva, usuario);
                     break;
                 case 0:
                     System.out.println("Saliendo del menú de reserva...");
@@ -46,7 +47,6 @@ public class MenuReserva {
             System.out.println();
         } while (opcion != 0);
 
-        scanner.close();
     }
 
     public static void mostrarMenuReserva() {

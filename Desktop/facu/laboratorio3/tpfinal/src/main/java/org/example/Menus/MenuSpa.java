@@ -1,40 +1,33 @@
 package org.example.Menus;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.Interfaces.IArchivoReserva;
 import org.example.Reserva;
 import org.example.Usuario;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class MenuSpa {
+public class MenuSpa implements IArchivoReserva {
 
-    public MenuSpa() {
-    }
-
-
-    public static void menuSpa(Reserva reserva, Usuario user)
+    public void menuSpa(Reserva reserva, Usuario user)
     {
 
         Scanner scanner = new Scanner(System.in);
         boolean salir = false;
         int opcion;
         String tipoSpa;
+        int cantDias;
+        Double importe;
+
         //boolean habilitada;
 
-        System.out.println("1. Dia");
-        System.out.println("2. Estadia");
-        System.out.println("3. Premium");
-
         do {
+            mostrarMenuSpa();
             try {
-                char SN = 'a';
+                String SN = "a";
                 System.out.print("Ingrese una opción: ");
                 opcion = scanner.nextInt();
                 scanner.nextLine();
@@ -45,11 +38,20 @@ public class MenuSpa {
 
 
                         tipoSpa = "Spa Dia";
-                        System.out.println("Esta seguro de reservar esta opcion del spa? Presione 's' para si, cualquier letra para no ");
-                        SN = (char) scanner.nextInt();
-                        if(SN == 's')
-                        {
+                        System.out.println("Cuantas dias desea reservar?: ");
+                        cantDias = scanner.nextInt();
+                        importe = (double) (cantDias * 2000);
+                        System.out.println("El valor total es de $" + importe);
 
+                        System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
+                        try {
+                            SN = scanner.nextLine();
+                            if(SN.equalsIgnoreCase("s")) {
+                                reserva.setearDatos(user, cantDias, importe, tipoSpa);
+                                actualizarArchReservas(reserva);
+                            }
+                        } catch (InputMismatchException e) {
+                            System.out.println("Opcion invalida, use letras por favor");
                         }
 
                         break;
@@ -57,22 +59,40 @@ public class MenuSpa {
                         System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada. \n-Gabinete de estetica facial y corporal");
 
                         tipoSpa = "Spa Estadia";
-                        System.out.println("Esta seguro de reservar esta opcion del spa? Presione 's' para si, cualquier letra para no ");
-                        SN = (char) scanner.nextInt();
-                        if(SN == 's')
-                        {
+                        System.out.println("Cuantas dias desea reservar?: ");
+                        cantDias = scanner.nextInt();
+                        importe = (double) (cantDias * 5000);
+                        System.out.println("El valor total es de $" + importe);
 
+                        System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
+                        try {
+                            SN = scanner.nextLine();
+                            if(SN.equalsIgnoreCase("s")) {
+                                reserva.setearDatos(user, cantDias, importe, tipoSpa);
+                                actualizarArchReservas(reserva);
+                            }
+                        } catch (InputMismatchException e) {
+                            System.out.println("Opcion invalida, use letras por favor");
                         }
                         break;
                     case 3:
                         System.out.println("Incluye servicio de Spa: \n-baños de vapor sauna, turco y finlandes. \n-Hidromasaje jacuzzi. \n-Piscina cubierta y climatizada. \n-Gabinete de estetica facial y corporal. \n-Gimnasio con aparatos y personal trainer. \n-Salas de relax");
 
                         tipoSpa = "Spa Premium";
-                        System.out.println("Esta seguro de reservar esta opcion del spa? Presione 's' para si, cualquier letra para no ");
-                        SN = (char) scanner.nextInt();
-                        if(SN == 's')
-                        {
+                        System.out.println("Cuantas dias desea reservar?: ");
+                        cantDias = scanner.nextInt();
+                        importe = (double) (cantDias * 7000);
+                        System.out.println("El valor total es de $" + importe);
 
+                        System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
+                        try {
+                            SN = scanner.nextLine();
+                            if(SN.equalsIgnoreCase("s")) {
+                                reserva.setearDatos(user, cantDias, importe, tipoSpa);
+                                actualizarArchReservas(reserva);
+                            }
+                        } catch (InputMismatchException e) {
+                            System.out.println("Opcion invalida, use letras por favor");
                         }
                         break;
                     case 0:
@@ -89,7 +109,18 @@ public class MenuSpa {
         }while(!salir);
     }
 
-    public static void actualizarArchReservas(Reserva reserva) {
+    public void mostrarMenuSpa()
+    {
+        System.out.println("***************************");
+        System.out.println("1. Dia");
+        System.out.println("2. Estadia");
+        System.out.println("3. Premium");
+        System.out.println();
+        System.out.println("0. Salir del menu spa");
+        System.out.println("***************************");
+    }
+
+    public void actualizarArchReservas(Reserva reserva) {
         ObjectMapper objectMapper = new ObjectMapper();
         List<Reserva> reservas = new ArrayList<>();
 

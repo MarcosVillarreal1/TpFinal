@@ -7,40 +7,44 @@ import java.util.Scanner;
 
 public class MenuComplejo {
 
-    private MenuReserva menuReserva;
+    MenuReserva menuRes = new MenuReserva();
+    public void menuComplejo(Usuario usuario) {
 
-    public MenuComplejo() {
-        this.menuReserva = new MenuReserva();
-    }
-
-    public static void menuComplejo(Usuario usuario) {
-
+        boolean salir = false;
         Scanner scanner = new Scanner(System.in);
-        int opcion;
+        //int opcion;
+
+
 
         do {
-            mostrarMenuComplejo();
-            System.out.print("Ingrese una opción: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
+            int opcion;
+            try {
+                mostrarMenuComplejo();
+                System.out.print("Ingrese una opción: ");
+                opcion = Integer.parseInt(scanner.nextLine());
 
-            switch (opcion) {
-                case 1:
-                    mostrarInformacion(opcion);
-                    break;
-                case 2:
-                    MenuReserva.menuReserva(usuario);
-                    break;
-                case 3:
-                    mostrarInformacion(opcion);
-                    break;
-                case 0:
-                    break;
-                default:
-                    System.out.println("La opcion introducida es invalida.");
-                    break;
+                switch (opcion) {
+                    case 1:
+                        mostrarInformacion(opcion);
+                        break;
+                    case 2:
+                        menuRes.menuReserva(usuario);
+                        break;
+                    case 3:
+                        mostrarInformacion(opcion);
+                        break;
+                    case 0:
+                        salir = true;
+                        break;
+                    default:
+                        System.out.println("La opcion introducida es invalida.");
+                        break;
+                }
+            }catch (NumberFormatException e)
+            {
+                System.out.println("Dato ingresado incorrecto, por favor ingrese un numero.");
             }
-        } while (opcion != 0);
+        }while(!salir);
     }
 
 

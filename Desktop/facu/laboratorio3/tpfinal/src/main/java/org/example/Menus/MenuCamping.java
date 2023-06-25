@@ -2,8 +2,7 @@ package org.example.Menus;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.Camping.Cabaña;
-import org.example.Camping.Camping;
-import org.example.Hoteleria.Hoteleria;
+import org.example.Interfaces.IArchivoReserva;
 import org.example.Reserva;
 import org.example.Usuario;
 
@@ -11,37 +10,27 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class MenuCamping {
+public class MenuCamping implements IArchivoReserva {
 
-    private Reserva reserva;
-
-    public MenuCamping() {
-    }
-
-
-
-    public static void menuCamping(Reserva reserva, Usuario user)
-
-    {
+    public void menuCamping(Reserva reserva, Usuario user) {
 
         Scanner scanner = new Scanner(System.in);
         boolean salir = false;
         int opcion;
         String tipoCamp;
+        int cantDias;
+        Double importe;
         //boolean habilitada;
-        LocalDate fechaInic;
+        //LocalDate fechaInic;
 
-        System.out.println("1. Carpa");
-        System.out.println("2. Cabaña");
 
         do {
+            mostrarMenuCamping();
             try {
-                char SN = 'a';
+                String SN = "a";
+                int cont;
                 System.out.print("Ingrese una opción: ");
                 opcion = scanner.nextInt();
                 scanner.nextLine();
@@ -49,23 +38,51 @@ public class MenuCamping {
                 switch (opcion) {
                     case 1:
                         System.out.println("-Incluye: \n-Amplias parcelas. \n-Toma corriente 220 volts. \n-Área de sombra. \n-Fogón individual. \n-Alambrado olímpico perimetral. \n-Vigilancia permanente. \n-Sanitarios completos. \n-Agua caliente de 7 a 22 hs.");
+                        System.out.println("Precio: $900 /noche");
+
 
                         tipoCamp = "Carpa";
-                        System.out.println("Esta seguro de reservar un espacio de camping? Presione 's' para si, cualquier letra para no ");
-                        SN = (char) scanner.nextInt();
-                        if(SN == 's')
-                        {
+                        System.out.println("Cuantas noches desea reservar?: ");
+                        cantDias = scanner.nextInt();
+                        importe = (double) (cantDias * 900);
+                        System.out.println("El valor total es de $" + importe);
 
+                        System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
+                        try {
+                            SN = scanner.nextLine();
+                            if(SN.equalsIgnoreCase("s")) {
+                                reserva.setearDatos(user, cantDias, importe, tipoCamp);
+                                actualizarArchReservas(reserva);
+                            }
+                        } catch (InputMismatchException e) {
+                            System.out.println("Opcion invalida, use letras por favor");
                         }
                         break;
                     case 2:
                         System.out.println("Incluye: \n-1 cama matrimonial. \n-3 camas de 1 plaza. \n-Estacionamiento para un auto. \n-Heladera. \n-Mesa y sillas. \n-Parrilla individual. \n-Baño privado completo. \n-Anafe dos hornallas.");
+                        System.out.println("Precio: $2000 /noche");
 
                         tipoCamp = "Cabaña";
-                        System.out.println("Esta seguro de reservar una cabaña? Presione 's' para si, cualquier letra para no ");
-                        SN = (char) scanner.nextInt();
-                        if(SN == 's')
-                        {
+                        cont = verificarDispoCab();
+                        if (cont == 0) {
+                            System.out.println("No hay cabañas disponibles.");
+                        } else {
+                            System.out.println("Cuantas noches desea reservar?: ");
+                            cantDias = scanner.nextInt();
+                            importe = (double) (cantDias * 2000);
+                            System.out.println("El valor total es de $" + importe);
+
+                            System.out.println("Esta seguro de reservar este tipo de habitacion? Presione 's' para si, cualquier letra para no ");
+                            try {
+                                SN = scanner.nextLine();
+                                if(SN.equalsIgnoreCase("s")) {
+                                    reserva.setearDatos(user, cantDias, importe, tipoCamp);
+                                    recorrerArchCab();
+                                    actualizarArchReservas(reserva);
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("Opcion invalida, use letras por favor");
+                            }
 
                         }
                         break;
@@ -75,16 +92,26 @@ public class MenuCamping {
                     default:
                         System.out.println("La opcion introducida es invalida.");
                         break;
+                        }
+                }catch(NumberFormatException e)
+                {
+                    System.out.println("Dato ingresado incorrecto, por favor ingrese un numero.");
                 }
-            }catch (NumberFormatException e)
-            {
-                System.out.println("Dato ingresado incorrecto, por favor ingrese un numero.");
-            }
-        }while(!salir);
+        } while (!salir) ;
     }
 
 
-    public static int verificarDispo()
+    public void mostrarMenuCamping()
+    {
+        System.out.println("***************************");
+        System.out.println("1. Carpa");
+        System.out.println("2. Cabaña");
+        System.out.println();
+        System.out.println("0. Salir del menu Camping");
+        System.out.println("***************************");
+    }
+
+    public static int verificarDispoCab()
     {
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -103,7 +130,7 @@ public class MenuCamping {
         return 0;
     }
 
-        public static void recorrerArchHab()
+        public static void recorrerArchCab()
         {
             ObjectMapper objectMapper = new ObjectMapper();
             int i = 0;
@@ -119,6 +146,7 @@ public class MenuCamping {
                 for (Cabaña cabaña : cabañas) {
                     if (cabaña.isEstado()) {
                         cabañas.get(i).cambioEstado();
+                        break;
                     }
                     i++;
                 }
@@ -134,7 +162,7 @@ public class MenuCamping {
         }
 
 
-    public static void actualizarArchReservas(Reserva reserva) {
+    public void actualizarArchReservas(Reserva reserva) {
         ObjectMapper objectMapper = new ObjectMapper();
         List<Reserva> reservas = new ArrayList<>();
 
