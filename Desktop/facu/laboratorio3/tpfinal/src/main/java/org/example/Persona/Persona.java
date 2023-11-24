@@ -3,9 +3,12 @@ package org.example.Persona;
 public abstract class Persona {
     private String nombre;
     private String apellido;
-    private Integer celular;
+    private long celular;
 
-    public Persona(String nombre, String apellido, Integer celular) {
+    public Persona() {
+    }
+
+    public Persona(String nombre, String apellido, long celular) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.celular = celular;
@@ -27,11 +30,11 @@ public abstract class Persona {
         this.apellido = apellido;
     }
 
-    public Integer getCelular() {
+    public long getCelular() {
         return celular;
     }
 
-    public void setCelular(Integer celular) {
+    public void setCelular(long celular) {
         this.celular = celular;
     }
 
